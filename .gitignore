@@ -49,3 +49,24 @@ desktop.ini
 
 # Composer
 /composer.lock
+# Añadidos por seguridad
+.env
+/vendor/
+/node_modules/
+*.log
+*.sql
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Añadidos por seguridad
+.env
+/vendor/
+/node_modules/
+*.log
+*.sql
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
