@@ -167,6 +167,18 @@ Inventario/
 👥 Autor
 Wilmer Garcia Ramirez — Desarrollo inicial
 
+## 📚 Documentación
+
+- [README.md](README.md) — Documentación principal
+- [CHANGELOG.md](CHANGELOG.md) — Historial de cambios
+- [LICENSE](LICENSE) — Licencia del proyecto
+
+## 🔗 Enlaces
+
+- [Repositorio](https://github.com/garrawil-cyber/Inventario)
+- [Issues](https://github.com/garrawil-cyber/Inventario/issues)
+- [Releases](https://github.com/garrawil-cyber/Inventario/releases)
+
 🙏 Agradecimientos
 Bootstrap
 
