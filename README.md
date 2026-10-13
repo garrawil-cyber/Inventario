@@ -25,6 +25,7 @@ Sistema web completo para la gestión de inventario, productos, ventas y ubicaci
 - [Uso del Sistema](#-uso-del-sistema)
 - [Seguridad](#-seguridad)
 - [Contribución](#-contribución)
+- [Changelog](#-changelog)
 - [Licencia](#-licencia)
 
 ---
