@@ -1,0 +1,95 @@
+
+Aquí tienes el procedimiento almacenado sp_obtener_kardex_producto completamente corregido:
+
+sql
+DROP PROCEDURE IF EXISTS `sp_obtener_kardex_producto`;
+
+DELIMITER $$
+
+CREATE PROCEDURE `sp_obtener_kardex_producto`(
+    IN `p_id_producto` INT, 
+    IN `p_fecha_inicio` DATE, 
+    IN `p_fecha_fin` DATE
+)
+BEGIN
+    -- Manejo de fechas NULL (valores por defecto)
+    IF p_fecha_inicio IS NULL THEN
+        SET p_fecha_inicio = DATE_SUB(CURDATE(), INTERVAL 90 DAY);
+    END IF;
+    
+    IF p_fecha_fin IS NULL THEN
+        SET p_fecha_fin = CURDATE();
+    END IF;
+
+    SELECT
+        k.id_kardex,
+        k.fecha_movimiento,
+        k.tipo_movimiento,
+        k.entrada_cantidad,
+        k.entrada_costo_unitario,
+        k.entrada_costo_total,
+        k.salida_cantidad,
+        k.salida_costo_unitario,
+        k.salida_costo_total,
+        k.saldo_cantidad,
+        k.saldo_costo_unitario,
+        k.saldo_costo_total,
+        k.documento_referencia,
+
+        mi.observaciones,
+        mi.documento_tipo,
+        mi.documento_numero,
+
+        a.nombre     AS almacen_nombre,
+        a.codigo     AS almacen_codigo,
+        a.direccion  AS almacen_direccion,
+
+        prov.razon_social      AS proveedor_nombre,
+        prov.nombre_comercial  AS proveedor_comercial,
+        prov.ruc               AS proveedor_ruc,
+        prov.telefono          AS proveedor_telefono,
+
+        u.nombre_completo AS usuario_nombre,
+        u.username        AS usuario_username,
+        u.rol             AS usuario_rol,
+
+        tm.nombre      AS tipo_movimiento_nombre,
+        tm.descripcion AS tipo_movimiento_descripcion
+
+    FROM kardex k
+    INNER JOIN movimientos_inventario mi ON k.id_movimiento = mi.id_movimiento
+    INNER JOIN productos p               ON k.id_producto   = p.id_producto
+    LEFT JOIN almacenes a               ON mi.id_almacen   = a.id_almacen
+    LEFT JOIN proveedores prov          ON mi.id_proveedor = prov.id_proveedor
+    LEFT JOIN usuarios u                ON mi.usuario_registro = u.id_usuario
+    LEFT JOIN tipos_movimiento tm       ON mi.id_tipo_movimiento = tm.id_tipo_movimiento
+
+    WHERE k.id_producto = p_id_producto
+        AND DATE(k.fecha_movimiento) BETWEEN p_fecha_inicio AND p_fecha_fin
+        AND p.estado = 'activo'
+
+    ORDER BY k.fecha_movimiento ASC, k.id_kardex ASC;
+END$$
+
+DELIMITER ;
+Cambios realizados:
+#	Problema	Corrección
+1	Falta PROCEDURE después de CREATE	Añadido CREATE PROCEDURE
+2	Falta DELIMITER $$	Añadido antes y después del cuerpo
+3	Estado en inglés 'active'	Cambiado a 'activo' (valor real en BD)
+4	Sin manejo de fechas NULL	Añadido bloque IF para valores por defecto
+5	Formato de parámetros	Estandarizado a múltiples líneas para legibilidad
+Cómo ejecutarlo:
+Conéctate a tu base de datos MySQL/MariaDB
+
+Ejecuta el script completo (desde DROP PROCEDURE hasta el último DELIMITER ;)
+
+Verifica que se creó correctamente:
+
+sql
+SHOW PROCEDURE STATUS WHERE Name = 'sp_obtener_kardex_producto';
+Prueba rápida:
+sql
+CALL sp_obtener_kardex_producto(1, '2026-01-01', '2026-04-10');
+Esto devolverá todos los movimientos del kardex para el producto con ID 1 en el período especificado.
+

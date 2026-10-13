@@ -1,0 +1,476 @@
+/**
+ * marcas.css - Estilos para el módulo de Marcas
+ */
+
+:root {
+    --marca-primary: #0d9488;
+    --marca-primary-dark: #0f766e;
+    --marca-danger: #ef4444;
+    --marca-danger-dark: #b91c1c;
+    --marca-warning: #f59e0b;
+    --marca-success: #10b981;
+    --marca-border: #e2e8f0;
+    --marca-bg-light: #f8fafc;
+    --marca-text: #334155;
+    --marca-text-muted: #64748b;
+    --marca-radius: 14px;
+    --marca-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Layout principal */
+.marca-wrap {
+    padding: 24px 28px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Encabezado */
+.marca-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.marca-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.65rem;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.marca-title i {
+    color: var(--marca-primary);
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+
+.marca-breadcrumb {
+    font-size: 0.8rem;
+    color: var(--marca-text-muted);
+}
+
+.marca-breadcrumb a {
+    color: var(--marca-primary);
+    text-decoration: none;
+}
+
+.marca-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Tarjetas de estadísticas */
+.marca-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.marca-stat-card {
+    background: #fff;
+    border-radius: var(--marca-radius);
+    box-shadow: var(--marca-shadow);
+    border: 1px solid var(--marca-border);
+    padding: 18px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.marca-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+}
+
+.marca-stat-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--marca-text-muted);
+    margin-bottom: 8px;
+}
+
+.marca-stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.marca-stat-value.activas {
+    color: var(--marca-success);
+}
+
+.marca-stat-value.inactivas {
+    color: var(--marca-danger);
+}
+
+/* Barra de filtros */
+.marca-filters {
+    background: #fff;
+    border-radius: var(--marca-radius);
+    box-shadow: var(--marca-shadow);
+    border: 1px solid var(--marca-border);
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.marca-filter-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+.marca-filter-group label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--marca-text-muted);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.marca-filter-group input,
+.marca-filter-group select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1.5px solid var(--marca-border);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+}
+
+.marca-filter-group input:focus,
+.marca-filter-group select:focus {
+    border-color: var(--marca-primary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+/* Botones */
+.btn-marca-primary {
+    background: var(--marca-primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+}
+
+.btn-marca-primary:hover {
+    background: var(--marca-primary-dark);
+    color: #fff;
+}
+
+.btn-marca-secondary {
+    background: #fff;
+    color: var(--marca-text);
+    border: 1.5px solid var(--marca-border);
+    border-radius: 10px;
+    padding: 9px 18px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s;
+    text-decoration: none;
+}
+
+.btn-marca-secondary:hover {
+    border-color: var(--marca-primary);
+    color: var(--marca-primary);
+}
+
+.btn-marca-danger {
+    background: var(--marca-danger);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s;
+}
+
+.btn-marca-danger:hover {
+    background: var(--marca-danger-dark);
+}
+
+.btn-marca-success {
+    background: var(--marca-success);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s;
+}
+
+.btn-marca-success:hover {
+    background: #0d9f6e;
+}
+
+/* Tabla */
+.marca-table-container {
+    background: #fff;
+    border-radius: var(--marca-radius);
+    box-shadow: var(--marca-shadow);
+    border: 1px solid var(--marca-border);
+    overflow-x: auto;
+}
+
+.marca-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.marca-table thead th {
+    background: var(--marca-bg-light);
+    padding: 14px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--marca-text-muted);
+    border-bottom: 2px solid var(--marca-border);
+    white-space: nowrap;
+}
+
+.marca-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: var(--marca-text);
+}
+
+.marca-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.marca-table tbody tr:hover td {
+    background: var(--marca-bg-light);
+}
+
+/* Badges de estado */
+.marca-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.marca-badge-activo {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.marca-badge-inactivo {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Acciones */
+.marca-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.marca-action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.15s;
+    font-size: 0.9rem;
+}
+
+.marca-action-btn.edit {
+    color: var(--marca-primary);
+}
+
+.marca-action-btn.edit:hover {
+    background: rgba(13, 148, 136, 0.1);
+}
+
+.marca-action-btn.delete {
+    color: var(--marca-danger);
+}
+
+.marca-action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.marca-action-btn.activate {
+    color: var(--marca-success);
+}
+
+.marca-action-btn.activate:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Paginación */
+.marca-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px 0;
+}
+
+.marca-pagination .pagination {
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.marca-pagination .page-link {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--marca-border);
+    color: var(--marca-text);
+    text-decoration: none;
+    transition: all 0.15s;
+}
+
+.marca-pagination .page-link:hover {
+    background: var(--marca-bg-light);
+    border-color: var(--marca-primary);
+    color: var(--marca-primary);
+}
+
+.marca-pagination .page-link.active {
+    background: var(--marca-primary);
+    border-color: var(--marca-primary);
+    color: #fff;
+}
+
+.marca-pagination .page-info {
+    font-size: 0.85rem;
+    color: var(--marca-text-muted);
+}
+
+/* Formulario */
+.marca-form-card {
+    background: #fff;
+    border-radius: var(--marca-radius);
+    box-shadow: var(--marca-shadow);
+    border: 1px solid var(--marca-border);
+    overflow: hidden;
+}
+
+.marca-form-header {
+    padding: 18px 24px;
+    background: var(--marca-bg-light);
+    border-bottom: 1px solid var(--marca-border);
+}
+
+.marca-form-header h5 {
+    margin: 0;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.marca-form-body {
+    padding: 24px;
+}
+
+.marca-form-group {
+    margin-bottom: 20px;
+}
+
+.marca-form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--marca-text);
+}
+
+.marca-form-group .form-control,
+.marca-form-group .form-select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--marca-border);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+}
+
+.marca-form-group .form-control:focus,
+.marca-form-group .form-select:focus {
+    border-color: var(--marca-primary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+}
+
+.marca-form-group textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.marca-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--marca-border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .marca-wrap {
+        padding: 16px;
+    }
+    
+    .marca-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .marca-filters {
+        flex-direction: column;
+    }
+    
+    .marca-filter-group {
+        width: 100%;
+    }
+    
+    .marca-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

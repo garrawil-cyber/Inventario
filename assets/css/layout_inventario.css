@@ -1,0 +1,381 @@
+/* ============================================================
+   SIDEBAR COLAPSABLE — SISTEMA ALMACÉN
+   Paleta: Azul marino profesional + acentos azul eléctrico
+   ============================================================ */
+
+:root {
+    --sidebar-width-expanded:  260px;
+    --sidebar-width-collapsed:  68px;
+    --navbar-height:            60px;
+    --primary-color:           #2563eb;   /* azul eléctrico accesible */
+    --primary-hover:           #1d4ed8;
+    --sidebar-bg-top:          #0f1c2e;   /* azul marino profundo */
+    --sidebar-bg-bottom:       #081525;
+    --sidebar-text:            #cbd5e1;
+    --sidebar-text-active:     #ffffff;
+    --sidebar-border-active:   var(--primary-color);
+    --transition-speed:        0.28s;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { overflow-x: hidden; }
+
+/* ── Bootstrap JS puede inyectar padding-right/top al body (modal, fixed navbar).
+   Neutralizamos eso sin afectar el contenido interno. ─────── */
+body {
+    margin: 0;
+    padding: 0 !important;
+    overflow-x: hidden;
+    background: #f0f3f8;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: var(--navbar-height);
+    padding: 0 1rem;
+    background: #ffffff !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.10);
+}
+
+/* Botón toggle (hamburguesa) */
+.sidebar-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #475569;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.4rem;
+}
+
+.sidebar-toggle-btn:hover  { background: #f1f5f9; color: var(--primary-color); }
+.sidebar-toggle-btn:focus  { outline: none; box-shadow: 0 0 0 3px rgba(37,99,235,.25); }
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: var(--sidebar-width-expanded);
+    height: calc(100vh - var(--navbar-height));
+    background: linear-gradient(180deg, var(--sidebar-bg-top) 0%, var(--sidebar-bg-bottom) 100%);
+    color: var(--sidebar-text);
+    z-index: 1020;
+    transition: width var(--transition-speed) ease;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #1e3a5f #0f1c2e;
+}
+
+/* Scrollbar webkit */
+.sidebar::-webkit-scrollbar       { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: #0f1c2e; }
+.sidebar::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+
+/* Estado colapsado */
+.sidebar.collapsed { width: var(--sidebar-width-collapsed); }
+
+.sidebar-content {
+    padding: 1rem 0;
+    width: var(--sidebar-width-expanded);
+    min-width: var(--sidebar-width-expanded);   /* evita que el contenido se comprima */
+}
+
+.sidebar.collapsed .sidebar-content {
+    width: var(--sidebar-width-collapsed);
+    min-width: var(--sidebar-width-collapsed);
+}
+
+/* ── Separador horizontal ── */
+.sidebar hr {
+    margin: 0.75rem 1rem;
+    border-color: rgba(255,255,255,.10);
+}
+
+.sidebar.collapsed hr { margin: 0.75rem 0.5rem; }
+
+/* ============================================================
+   NAVEGACIÓN DEL MENÚ
+   ============================================================ */
+.sidebar .nav        { flex-direction: column; width: 100%; }
+.sidebar .nav-item   { width: 100%; position: relative; }
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 11px 16px;
+    color: var(--sidebar-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.18s, color 0.18s, border-left-color 0.18s;
+    border-left: 3px solid transparent;
+    white-space: nowrap;
+    text-decoration: none;
+    position: relative;
+}
+
+.sidebar .nav-link i {
+    width: 22px;
+    font-size: 1.05rem;
+    text-align: center;
+    flex-shrink: 0;
+    color: #64748b;
+    transition: color 0.18s;
+}
+
+.sidebar .nav-link span {
+    transition: opacity 0.2s, visibility 0.2s, width 0s;
+    overflow: hidden;
+}
+
+/* Hover */
+.sidebar .nav-link:hover {
+    background: rgba(37,99,235,.12);
+    color: var(--sidebar-text-active);
+    border-left-color: var(--primary-color);
+}
+.sidebar .nav-link:hover i { color: var(--primary-color); }
+
+/* Activo */
+.sidebar .nav-link.active {
+    background: rgba(37,99,235,.18);
+    color: var(--sidebar-text-active);
+    border-left-color: var(--primary-color);
+    font-weight: 600;
+}
+.sidebar .nav-link.active i { color: var(--primary-color); }
+
+/* ── Colapsado: ocultar texto ── */
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+}
+
+.sidebar.collapsed .nav-link span {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+/* ── Tooltip al colapsar ── */
+.sidebar.collapsed .nav-link:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0f1c2e;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    z-index: 1060;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    border-left: 3px solid var(--primary-color);
+    pointer-events: none;
+}
+
+/* ============================================================
+   DROPDOWN / SUBMENÚ
+   ============================================================ */
+.sidebar .dropdown-toggle { cursor: pointer; }
+
+.sidebar .dropdown-toggle::after {
+    content: "▾";
+    font-size: 0.75rem;
+    margin-left: auto;
+    border: none;
+    transition: transform 0.2s;
+    display: inline-block;
+    color: #64748b;
+}
+
+.sidebar .dropdown.show .dropdown-toggle::after { transform: rotate(180deg); }
+.sidebar.collapsed .dropdown-toggle::after { display: none; }
+
+/* Submenú expandido (modo normal) */
+.sidebar .dropdown-menu {
+    position: static !important;
+    width: 100%;
+    background: rgba(8,21,37,.5);
+    border: none;
+    border-radius: 0;
+    padding: 4px 0;
+    margin: 0;
+    box-shadow: none;
+    display: none;
+}
+.sidebar .dropdown-menu.show { display: block; }
+
+/* Submenú flotante (modo colapsado) */
+.sidebar.collapsed .dropdown-menu {
+    position: absolute !important;
+    left: 100%;
+    top: 0;
+    width: 200px;
+    background: #0f1c2e;
+    border-radius: 8px;
+    margin-left: 4px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.4);
+    padding: 6px 0;
+    display: none;
+}
+.sidebar.collapsed .dropdown-menu.show { display: block; }
+
+.sidebar .dropdown-item {
+    padding: 9px 18px 9px 52px;
+    color: #94a3b8;
+    font-size: 0.835rem;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar.collapsed .dropdown-item { padding: 9px 16px; }
+
+.sidebar .dropdown-item i  { width: 18px; margin-right: 8px; }
+
+.sidebar .dropdown-item:hover {
+    background: rgba(37,99,235,.14);
+    color: #fff;
+}
+
+/* ============================================================
+   CONTENT WRAPPER
+   ============================================================ */
+.content-wrapper {
+    margin-left: var(--sidebar-width-expanded);
+    margin-top: var(--navbar-height);
+    min-height: calc(100vh - var(--navbar-height));
+    transition: margin-left var(--transition-speed) ease;
+    background: #f0f3f8;
+}
+
+/* Sidebar colapsado → el contenido se expande */
+.content-wrapper.expanded {
+    margin-left: var(--sidebar-width-collapsed);
+}
+
+/* Padding interno del contenido */
+.content-wrapper .page-content {
+    padding: 1.5rem;
+}
+
+/* ============================================================
+   OVERLAY MÓVIL
+   ============================================================ */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1019;
+    display: none;
+    backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.active { display: block; }
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        left: calc(-1 * var(--sidebar-width-expanded));
+        width: var(--sidebar-width-expanded);
+        transition: left var(--transition-speed) ease;
+    }
+
+    .sidebar.mobile-open { left: 0; }
+
+    .content-wrapper {
+        margin-left: 0 !important;
+    }
+}
+/* Flecha del submenu en sidebar */
+.sidebar-submenu-toggle .sidebar-arrow {
+    transition: transform 0.2s ease;
+    font-size: 0.7rem;
+}
+.sidebar-submenu-toggle.collapsed .sidebar-arrow {
+    transform: rotate(-90deg);
+}
+
+/* Mejoras para el overlay móvil */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1015;
+    display: none;
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -100%;
+        transition: left 0.3s ease;
+        z-index: 1020;
+    }
+    
+    .sidebar.mobile-open {
+        left: 0;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .content-wrapper {
+        margin-left: 0 !important;
+    }
+    
+    /* Evitar scroll del body cuando el sidebar está abierto en móvil */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}
+
+/* Animación para la flecha del submenu */
+.sidebar-submenu-toggle .sidebar-arrow {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-submenu-toggle:not(.collapsed) .sidebar-arrow {
+    transform: rotate(90deg);
+}
+
+/* Ajustes para modo colapsado en escritorio */
+.sidebar.collapsed .sidebar-submenu-toggle .sidebar-arrow {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-submenu-toggle:hover .sidebar-arrow {
+    display: inline-block;
+}

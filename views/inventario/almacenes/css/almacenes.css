@@ -1,0 +1,281 @@
+/* ============================================================
+   ALMACENES MODULE CSS
+   Sistema: RopaVirtual - Módulo de Almacenes
+   ============================================================ */
+
+/* ----------------------------------------------
+   Tarjetas de estadísticas
+---------------------------------------------- */
+.almacen-stat-card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+}
+
+.almacen-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.almacen-stat-card .stat-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 3rem;
+    opacity: 0.15;
+}
+
+.almacen-stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.almacen-stat-card .stat-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+}
+
+/* ----------------------------------------------
+   Tabla de almacenes
+---------------------------------------------- */
+.table-almacenes {
+    margin-bottom: 0;
+}
+
+.table-almacenes th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #f8f9fa;
+    border-top: none;
+    padding: 1rem 0.75rem;
+}
+
+.table-almacenes td {
+    vertical-align: middle;
+    font-size: 0.85rem;
+    padding: 0.75rem;
+}
+
+/* ----------------------------------------------
+   Badges de tipos
+---------------------------------------------- */
+.badge-almacen-principal {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.badge-almacen-secundario {
+    background-color: #17a2b8;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.badge-almacen-transitorio {
+    background-color: #6c757d;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ----------------------------------------------
+   Badges de estado
+---------------------------------------------- */
+.badge-almacen-activo {
+    background-color: #28a745;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.badge-almacen-inactivo {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ----------------------------------------------
+   Filtros card
+---------------------------------------------- */
+.almacen-filtros-card {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e9ecef;
+}
+
+.almacen-filtros-card .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #495057;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ----------------------------------------------
+   Detalle de almacén
+---------------------------------------------- */
+.almacen-info-card {
+    background: white;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.almacen-info-card .card-header {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 1.25rem;
+    border-radius: 16px 16px 0 0;
+}
+
+.almacen-info-card .info-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.almacen-info-card .info-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* ----------------------------------------------
+   Progress bar para capacidad
+---------------------------------------------- */
+.almacen-capacity-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.almacen-capacity-bar .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #28a745, #20c997);
+    transition: width 0.3s ease;
+}
+
+/* ----------------------------------------------
+   Ubicaciones grid dentro de almacén
+---------------------------------------------- */
+.almacen-ubicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ubicacion-mini-card {
+    background: white;
+    border-radius: 12px;
+    padding: 0.75rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+    cursor: pointer;
+}
+
+.ubicacion-mini-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+}
+
+.ubicacion-mini-card.disponible {
+    border-left: 3px solid #28a745;
+}
+
+.ubicacion-mini-card.ocupado {
+    border-left: 3px solid #dc3545;
+}
+
+.ubicacion-mini-card.mantenimiento {
+    border-left: 3px solid #ffc107;
+}
+
+.ubicacion-mini-card .codigo {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.ubicacion-mini-card .ubicacion {
+    font-size: 0.65rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.ubicacion-mini-card .estado-badge {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* ----------------------------------------------
+   Responsive
+---------------------------------------------- */
+@media (max-width: 768px) {
+    .almacen-stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .almacen-ubicaciones-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .table-almacenes {
+        font-size: 0.75rem;
+    }
+    
+    .table-almacenes th,
+    .table-almacenes td {
+        padding: 0.5rem;
+    }
+}
+
+/* ----------------------------------------------
+   Animaciones
+---------------------------------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.almacen-card-animate {
+    animation: fadeInUp 0.4s ease forwards;
+}

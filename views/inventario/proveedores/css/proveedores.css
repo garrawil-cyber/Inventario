@@ -1,0 +1,339 @@
+/* ============================================================
+   PROVEEDORES MODULE - Modern Professional Design
+   ============================================================ */
+
+/* --- Tokens --- */
+:root {
+    --pv-bg: #f8fafc;
+    --pv-card: #ffffff;
+    --pv-border: #e2e8f0;
+    --pv-text: #0f172a;
+    --pv-text-muted: #64748b;
+    --pv-primary: #4f46e5;
+    --pv-primary-light: #eef2ff;
+    --pv-success: #059669;
+    --pv-success-light: #d1fae5;
+    --pv-warning: #d97706;
+    --pv-warning-light: #fef3c7;
+    --pv-danger: #dc2626;
+    --pv-danger-light: #fee2e2;
+    --pv-info: #0891b2;
+    --pv-info-light: #cffafe;
+    --pv-radius: 16px;
+    --pv-radius-sm: 12px;
+    --pv-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+    --pv-shadow-lg: 0 10px 40px -12px rgba(0,0,0,0.15);
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', 'JetBrains Mono', monospace;
+}
+
+/* --- Base --- */
+body {
+    background: var(--pv-bg);
+    font-family: var(--font-display);
+}
+
+/* --- Cards Modernas --- */
+.pv-card {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius);
+    border: 1px solid var(--pv-border);
+    box-shadow: var(--pv-shadow);
+    transition: all 0.2s ease;
+}
+
+.pv-card:hover {
+    box-shadow: var(--pv-shadow-lg);
+    transform: translateY(-2px);
+}
+
+.pv-card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--pv-border);
+    background: transparent;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--pv-text-muted);
+}
+
+.pv-card-body {
+    padding: 1.5rem;
+}
+
+/* --- KPI Cards --- */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.kpi-card {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius);
+    border-left: 4px solid transparent;
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--pv-shadow);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--pv-shadow-lg);
+}
+
+.kpi-card.total { border-left-color: var(--pv-primary); }
+.kpi-card.productos { border-left-color: var(--pv-success); }
+.kpi-card.compras { border-left-color: var(--pv-info); }
+.kpi-card.mes { border-left-color: var(--pv-warning); }
+
+.kpi-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.kpi-card.total .kpi-icon { background: var(--pv-primary-light); color: var(--pv-primary); }
+.kpi-card.productos .kpi-icon { background: var(--pv-success-light); color: var(--pv-success); }
+.kpi-card.compras .kpi-icon { background: var(--pv-info-light); color: var(--pv-info); }
+.kpi-card.mes .kpi-icon { background: var(--pv-warning-light); color: var(--pv-warning); }
+
+.kpi-info h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--pv-text);
+}
+
+.kpi-info p {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--pv-text-muted);
+}
+
+.kpi-sub {
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
+}
+
+/* --- Tabla Moderna --- */
+.pv-table-wrapper {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius);
+    border: 1px solid var(--pv-border);
+    overflow: hidden;
+}
+
+.pv-table {
+    width: 100%;
+    margin: 0;
+}
+
+.pv-table thead th {
+    background: #f8fafc;
+    padding: 0.875rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--pv-text-muted);
+    border-bottom: 2px solid var(--pv-border);
+}
+
+.pv-table tbody td {
+    padding: 0.875rem 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--pv-border);
+    font-size: 0.85rem;
+}
+
+.pv-table tbody tr:hover {
+    background: #fefce8;
+}
+
+/* --- Avatar --- */
+.pv-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--pv-primary), #818cf8);
+}
+
+/* --- RUC Chip --- */
+.ruc-chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: #f1f5f9;
+    color: var(--pv-text-muted);
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* --- Badges Estado --- */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.status-active {
+    background: var(--pv-success-light);
+    color: var(--pv-success);
+}
+
+.status-inactive {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.status-suspended {
+    background: var(--pv-danger-light);
+    color: var(--pv-danger);
+}
+
+/* --- Botones Acción --- */
+.action-btns {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid var(--pv-border);
+    background: white;
+    color: var(--pv-text-muted);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.action-btn.view:hover { background: var(--pv-info-light); color: var(--pv-info); border-color: var(--pv-info); }
+.action-btn.edit:hover { background: var(--pv-warning-light); color: var(--pv-warning); border-color: var(--pv-warning); }
+.action-btn.delete:hover { background: var(--pv-danger-light); color: var(--pv-danger); border-color: var(--pv-danger); }
+.action-btn.activate:hover { background: var(--pv-success-light); color: var(--pv-success); border-color: var(--pv-success); }
+
+/* --- Formulario Moderno --- */
+.pv-form {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius);
+    border: 1px solid var(--pv-border);
+}
+
+.pv-form-group {
+    margin-bottom: 1.25rem;
+}
+
+.pv-form-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--pv-text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.pv-form-control {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--pv-border);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.pv-form-control:focus {
+    outline: none;
+    border-color: var(--pv-primary);
+    box-shadow: 0 0 0 3px var(--pv-primary-light);
+}
+
+/* --- Filtros --- */
+.pv-filters {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius);
+    border: 1px solid var(--pv-border);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Analytics Cards --- */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.top-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--pv-border);
+}
+
+.top-list-item:last-child {
+    border-bottom: none;
+}
+
+.top-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--pv-primary-light);
+    color: var(--pv-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.75rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pv-table-wrapper {
+        overflow-x: auto;
+    }
+}

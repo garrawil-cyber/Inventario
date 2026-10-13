@@ -1,0 +1,506 @@
+/* ============================================================
+   INVENTARIO FÍSICO MODULE CSS
+   Sistema: RopaVirtual - Módulo de Inventario Físico
+   Fuente: Poppins (Google Fonts)
+   ============================================================ */
+
+/* Importar fuente elegante */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Aplicar fuente global al módulo */
+.inventario-fisico-module,
+.container-fluid:has(.filtros-inv-card) {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ----------------------------------------------
+   Tarjetas de estadísticas (KPI Cards)
+---------------------------------------------- */
+.stat-card-inv {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card-inv:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.stat-card-inv .stat-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2.5rem;
+    opacity: 0.15;
+}
+
+.stat-card-inv .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.stat-card-inv .stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* ----------------------------------------------
+   Tarjetas KPI (nuevo diseño elegante)
+---------------------------------------------- */
+.kpi-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+}
+
+.kpi-card .kpi-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -1px;
+    margin-bottom: 0.25rem;
+}
+
+.kpi-card .kpi-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.kpi-card .kpi-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 1.5rem;
+}
+
+/* ----------------------------------------------
+   Badges de estado
+---------------------------------------------- */
+.badge-inv-planificado {
+    background: linear-gradient(135deg, #17a2b8, #0f7a8a);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-inv-en_proceso {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: #212529;
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-inv-finalizado {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-inv-cancelado {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    color: white;
+    padding: 0.35rem 0.9rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ----------------------------------------------
+   Tabla de productos en inventario
+---------------------------------------------- */
+.table-productos-inv {
+    font-family: 'Poppins', sans-serif;
+}
+
+.table-productos-inv th {
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+    border-top: none;
+    padding: 1rem 0.75rem;
+}
+
+.table-productos-inv td {
+    vertical-align: middle;
+    font-size: 0.85rem;
+    font-weight: 400;
+    padding: 0.85rem 0.75rem;
+}
+
+.diferencia-positiva {
+    color: #28a745;
+    font-weight: 700;
+}
+
+.diferencia-negativa {
+    color: #dc3545;
+    font-weight: 700;
+}
+
+.diferencia-cero {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* ----------------------------------------------
+   Modal de productos
+---------------------------------------------- */
+.modal-producto .modal-content {
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+}
+
+.modal-producto .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1.25rem 1.5rem;
+}
+
+.modal-producto .modal-header h5 {
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+.modal-producto .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.modal-producto .modal-body {
+    padding: 1.5rem;
+}
+
+.modal-producto .form-label {
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.modal-producto .form-control,
+.modal-producto .form-select {
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.modal-producto .form-control:focus,
+.modal-producto .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* ----------------------------------------------
+   Filtros
+---------------------------------------------- */
+.filtros-inv-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #eef2f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.filtros-inv-card .form-label {
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.filtros-inv-card .form-control,
+.filtros-inv-card .form-select {
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.filtros-inv-card .form-control:focus,
+.filtros-inv-card .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ----------------------------------------------
+   Tarjetas de inventario (cards)
+---------------------------------------------- */
+.inventario-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+}
+
+.inventario-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.inventario-card .card-header {
+    border-bottom: none;
+    padding: 1rem 1.25rem;
+}
+
+.inventario-card .card-body {
+    padding: 1.25rem;
+}
+
+.inventario-card .card-footer {
+    background: transparent;
+    border-top: 1px solid #eef2f6;
+    padding: 1rem 1.25rem;
+}
+
+.icon-box {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+}
+
+/* ----------------------------------------------
+   Tabla principal de inventarios
+---------------------------------------------- */
+.card.shadow-sm .table {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card.shadow-sm .table thead th {
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+    border-bottom: none;
+    padding: 1rem 1rem;
+}
+
+.card.shadow-sm .table tbody td {
+    font-size: 0.85rem;
+    font-weight: 400;
+    vertical-align: middle;
+    padding: 0.85rem 1rem;
+    border-color: #f0f2f5;
+}
+
+.card.shadow-sm .table tbody tr:hover {
+    background-color: #fef9e6;
+    transition: background-color 0.2s ease;
+}
+
+/* ----------------------------------------------
+   Sección informativa (ayuda)
+---------------------------------------------- */
+.card.border-0.shadow-sm.h-100 {
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #ffffff, #fefefe);
+}
+
+.card.border-0.shadow-sm.h-100:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card.border-0.shadow-sm.h-100 h6 {
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    font-size: 0.9rem;
+}
+
+.card.border-0.shadow-sm.h-100 p,
+.card.border-0.shadow-sm.h-100 ol {
+    font-size: 0.8rem;
+    color: #5a6a7a;
+    line-height: 1.6;
+}
+
+/* ----------------------------------------------
+   Botones
+---------------------------------------------- */
+.btn-sm {
+    border-radius: 10px;
+    padding: 0.4rem 0.9rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd6, #6a4190);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline-primary {
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+.btn-outline-primary:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: transparent;
+}
+
+/* ----------------------------------------------
+   Paginación
+---------------------------------------------- */
+.pagination .page-link {
+    border-radius: 10px !important;
+    margin: 0 3px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background: #f8f9fa;
+    color: #495057;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.pagination .page-link:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* ----------------------------------------------
+   Animaciones
+---------------------------------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ----------------------------------------------
+   Scrollbar personalizado
+---------------------------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a6fd6;
+}
+
+/* ----------------------------------------------
+   Responsive
+---------------------------------------------- */
+@media (max-width: 768px) {
+    .kpi-card .kpi-value {
+        font-size: 1.5rem;
+    }
+    
+    .card.shadow-sm .table thead th,
+    .card.shadow-sm .table tbody td {
+        font-size: 0.7rem;
+        padding: 0.6rem 0.5rem;
+    }
+    
+    .filtros-inv-card {
+        padding: 1rem;
+    }
+    
+    .btn-sm {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,79 @@
+# ============================================================
+#  .htaccess — Sistema INVENTARIO
+#  Ubicación: raíz del proyecto (mismo nivel que index.php)
+# ============================================================
+
+# ── Motor de reescritura ─────────────────────────────────────
+Options -Indexes
+Options +FollowSymLinks
+RewriteEngine On
+
+# ── Base del proyecto ────────────────────────────────────────
+# Si el proyecto NO está en la raíz del servidor, ajusta aquí:
+# RewriteBase /INVENTARIO/
+RewriteBase /INVENTARIO/
+
+# ── 1. BLOQUEAR ACCESO DIRECTO A ARCHIVOS SENSIBLES ──────────
+# Nadie puede abrir config/, models/, controllers/ por URL
+RewriteRule ^config/.*$      index.php?error=403 [L,R=403]
+RewriteRule ^models/.*$      index.php?error=403 [L,R=403]
+RewriteRule ^controllers/.*$ index.php?error=403 [L,R=403]
+RewriteRule ^app/.*$         index.php?error=403 [L,R=403]
+RewriteRule ^logs/.*$        index.php?error=403 [L,R=403]
+
+# ── 2. BLOQUEAR ARCHIVOS PHP EXCEPTO index.php ───────────────
+# Evita el problema original: acceder a dashboard.php directo
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} \.php$
+RewriteCond %{REQUEST_URI} !^/INVENTARIO/index\.php$
+RewriteRule ^ - [F,L]
+
+# ── 3. PASAR RECURSOS ESTÁTICOS DIRECTAMENTE ─────────────────
+# CSS, JS, imágenes, fuentes no pasan por el front-controller
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ── 4. TODO LO DEMÁS → index.php (front-controller) ─────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# ── 5. CABECERAS DE SEGURIDAD ────────────────────────────────
+<IfModule mod_headers.c>
+    # Evita que el navegador "adivine" el tipo de contenido
+    Header set X-Content-Type-Options "nosniff"
+    # Protección básica contra clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Activa el filtro XSS del navegador
+    Header set X-XSS-Protection "1; mode=block"
+    # No enviar referrer fuera del sitio
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── 6. OCULTAR VERSIÓN DE PHP Y SERVIDOR ─────────────────────
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# ── 7. CACHE PARA RECURSOS ESTÁTICOS ────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css             "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png            "access plus 1 month"
+    ExpiresByType image/jpg            "access plus 1 month"
+    ExpiresByType image/jpeg           "access plus 1 month"
+    ExpiresByType image/gif            "access plus 1 month"
+    ExpiresByType image/svg+xml        "access plus 1 month"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType font/woff2           "access plus 1 year"
+</IfModule>
+
+# ── 8. CHARSET Y COMPRESIÓN ──────────────────────────────────
+AddDefaultCharset UTF-8
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>

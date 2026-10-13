@@ -1,0 +1,644 @@
+/* ============================================================
+   crear.css - Estilos profesionales para Nueva Venta
+   Sistema: RopaVirtual - Módulo de Ventas
+   ============================================================ */
+
+:root {
+    --vs-primary: #6366f1;
+    --vs-primary-dark: #4f46e5;
+    --vs-primary-light: #818cf8;
+    --vs-secondary: #64748b;
+    --vs-success: #10b981;
+    --vs-danger: #ef4444;
+    --vs-danger-dark: #dc2626;
+    --vs-warning: #f59e0b;
+    --vs-info: #3b82f6;
+    --vs-dark: #1e293b;
+    --vs-gray-50: #f8fafc;
+    --vs-gray-100: #f1f5f9;
+    --vs-gray-200: #e2e8f0;
+    --vs-gray-300: #cbd5e1;
+    --vs-gray-400: #94a3b8;
+    --vs-gray-500: #64748b;
+    --vs-gray-600: #475569;
+    --vs-gray-700: #334155;
+    --vs-gray-800: #1e293b;
+    --vs-gray-900: #0f172a;
+    --vs-radius: 16px;
+    --vs-radius-sm: 10px;
+    --vs-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 15px -5px rgba(0,0,0,0.05);
+    --vs-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --vs-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --vs-shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    --vs-transition: all 0.2s ease;
+}
+
+/* ============================================================
+   LAYOUT GENERAL
+   ============================================================ */
+.vs-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: calc(100vh - 120px);
+}
+
+/* ============================================================
+   HEADER DE PÁGINA
+   ============================================================ */
+.vs-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.vs-page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+
+.vs-page-subtitle {
+    color: var(--vs-gray-500);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.vs-btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--vs-gray-200);
+    border-radius: var(--vs-radius-sm);
+    color: var(--vs-gray-600);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--vs-transition);
+}
+
+.vs-btn-back:hover {
+    background: var(--vs-gray-50);
+    border-color: var(--vs-gray-300);
+    color: var(--vs-gray-800);
+    transform: translateX(-2px);
+}
+
+/* ============================================================
+   TARJETAS (CARDS)
+   ============================================================ */
+.vs-card {
+    background: white;
+    border-radius: var(--vs-radius);
+    box-shadow: var(--vs-shadow);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    transition: var(--vs-transition);
+}
+
+.vs-card:hover {
+    box-shadow: var(--vs-shadow-md);
+}
+
+.vs-card-header {
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--vs-gray-200);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--vs-gray-700);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vs-card-header i {
+    color: var(--vs-primary);
+    font-size: 1.1rem;
+}
+
+.vs-card-body {
+    padding: 1.25rem;
+}
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+.vs-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--vs-gray-500);
+    margin-bottom: 0.5rem;
+}
+
+.vs-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid var(--vs-gray-200);
+    border-radius: var(--vs-radius-sm);
+    font-size: 0.875rem;
+    transition: var(--vs-transition);
+    background: white;
+    color: var(--vs-gray-800);
+}
+
+.vs-input:focus {
+    outline: none;
+    border-color: var(--vs-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.vs-input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.vs-input-group .vs-input {
+    border-radius: var(--vs-radius-sm) 0 0 var(--vs-radius-sm);
+    flex: 1;
+}
+
+.vs-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 0.875rem;
+    background: var(--vs-gray-100);
+    border: 1.5px solid var(--vs-gray-200);
+    border-left: none;
+    border-radius: 0 var(--vs-radius-sm) var(--vs-radius-sm) 0;
+    font-size: 0.875rem;
+    color: var(--vs-gray-600);
+    font-weight: 500;
+}
+
+/* ============================================================
+   BÚSQUEDA DE PRODUCTOS
+   ============================================================ */
+.vs-search-container {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.vs-search-wrap {
+    flex: 1;
+    position: relative;
+}
+
+.vs-search-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--vs-gray-400);
+    font-size: 0.875rem;
+}
+
+.vs-search-input {
+    padding-left: 2.5rem;
+}
+
+.vs-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: var(--vs-gray-100);
+    border: 1.5px solid var(--vs-gray-200);
+    border-radius: var(--vs-radius-sm);
+    color: var(--vs-gray-600);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    white-space: nowrap;
+}
+
+.vs-btn-secondary:hover {
+    background: var(--vs-gray-200);
+    border-color: var(--vs-gray-300);
+    color: var(--vs-gray-800);
+}
+
+/* Resultados de búsqueda */
+.vs-search-results {
+    animation: fadeInUp 0.3s ease;
+}
+
+.vs-results {
+    border: 1px solid var(--vs-gray-200);
+    border-radius: var(--vs-radius-sm);
+    overflow: hidden;
+}
+
+.vs-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--vs-gray-100);
+    transition: var(--vs-transition);
+    cursor: pointer;
+}
+
+.vs-result-item:last-child {
+    border-bottom: none;
+}
+
+.vs-result-item:hover {
+    background: var(--vs-gray-50);
+}
+
+.vs-product-name {
+    font-weight: 600;
+    color: var(--vs-gray-800);
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.vs-product-code {
+    font-size: 0.7rem;
+    color: var(--vs-gray-500);
+    font-family: monospace;
+}
+
+.vs-product-detail {
+    font-size: 0.7rem;
+    color: var(--vs-gray-500);
+}
+
+.vs-product-price {
+    font-weight: 700;
+    color: var(--vs-primary);
+    font-size: 0.9rem;
+}
+
+.vs-btn-add {
+    background: linear-gradient(135deg, var(--vs-primary) 0%, var(--vs-primary-dark) 100%);
+    border: none;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.vs-btn-add:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+/* ============================================================
+   CARRITO DE VENTAS
+   ============================================================ */
+.vs-sticky-card {
+    position: sticky;
+    top: 1.5rem;
+}
+
+.vs-cart-header {
+    background: linear-gradient(135deg, var(--vs-gray-800) 0%, var(--vs-gray-900) 100%);
+    padding: 1rem 1.25rem;
+    border-radius: var(--vs-radius) var(--vs-radius) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.vs-cart-header-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vs-cart-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.625rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.vs-cart-items {
+    background: white;
+    max-height: 400px;
+    overflow-y: auto;
+    border-left: 1px solid var(--vs-gray-200);
+    border-right: 1px solid var(--vs-gray-200);
+}
+
+.vs-cart-item {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--vs-gray-100);
+    transition: var(--vs-transition);
+}
+
+.vs-cart-item:hover {
+    background: var(--vs-gray-50);
+}
+
+.vs-cart-item-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--vs-gray-800);
+    margin-bottom: 0.25rem;
+}
+
+.vs-cart-item-price {
+    font-size: 0.7rem;
+    color: var(--vs-gray-500);
+}
+
+.vs-cart-subtotal {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--vs-primary);
+    text-align: right;
+}
+
+.vs-qty {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.vs-qty-btn {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--vs-gray-100);
+    border: 1px solid var(--vs-gray-200);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    color: var(--vs-gray-600);
+}
+
+.vs-qty-btn:hover {
+    background: var(--vs-gray-200);
+    color: var(--vs-gray-800);
+}
+
+.vs-qty-btn.remove {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: var(--vs-danger);
+}
+
+.vs-qty-btn.remove:hover {
+    background: #fecaca;
+    color: var(--vs-danger-dark);
+}
+
+.vs-qty-input {
+    width: 50px;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid var(--vs-gray-200);
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* Carrito vacío */
+.vs-empty-cart {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--vs-gray-400);
+}
+
+.vs-empty-cart-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.vs-empty-cart p {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--vs-gray-500);
+}
+
+.vs-empty-cart small {
+    font-size: 0.7rem;
+}
+
+/* ============================================================
+   FOOTER DEL CARRITO (TOTALES Y ACCIONES)
+   ============================================================ */
+.vs-cart-footer {
+    background: white;
+    border: 1px solid var(--vs-gray-200);
+    border-top: none;
+    border-radius: 0 0 var(--vs-radius) var(--vs-radius);
+    overflow: hidden;
+}
+
+.vs-totals {
+    padding: 1rem 1.25rem;
+    background: var(--vs-gray-50);
+    border-bottom: 1px solid var(--vs-gray-200);
+}
+
+.vs-total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    color: var(--vs-gray-600);
+}
+
+.vs-total-row span:first-child {
+    font-weight: 500;
+}
+
+.vs-total-final {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.875rem 0 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 2px dashed var(--vs-gray-300);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.vs-total-final .amount {
+    color: var(--vs-primary);
+    font-size: 1.25rem;
+}
+
+.vs-discount-amount {
+    color: var(--vs-danger);
+}
+
+.vs-cart-actions {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.vs-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--vs-primary) 0%, var(--vs-primary-dark) 100%);
+    border: none;
+    border-radius: var(--vs-radius-sm);
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    width: 100%;
+}
+
+.vs-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.vs-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1.5px solid var(--vs-gray-200);
+    border-radius: var(--vs-radius-sm);
+    color: var(--vs-gray-600);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    width: 100%;
+}
+
+.vs-btn-ghost:hover {
+    background: var(--vs-gray-100);
+    border-color: var(--vs-gray-300);
+    color: var(--vs-gray-800);
+}
+
+.vs-btn-generar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background: var(--vs-gray-100);
+    border: 1.5px solid var(--vs-gray-200);
+    border-left: none;
+    border-radius: 0 var(--vs-radius-sm) var(--vs-radius-sm) 0;
+    cursor: pointer;
+    transition: var(--vs-transition);
+    color: var(--vs-gray-600);
+}
+
+.vs-btn-generar:hover {
+    background: var(--vs-gray-200);
+    color: var(--vs-gray-800);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 992px) {
+    .vs-sticky-card {
+        position: static;
+        margin-top: 1rem;
+    }
+    
+    .vs-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .vs-search-container {
+        flex-direction: column;
+    }
+    
+    .vs-btn-secondary {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .vs-card-body {
+        padding: 1rem;
+    }
+    
+    .vs-result-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .vs-result-item > div:last-child {
+        text-align: center;
+    }
+    
+    .vs-cart-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}

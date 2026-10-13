@@ -1,0 +1,51 @@
+# ============================================================
+# INVENTARIO - GITIGNORE
+# ============================================================
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Dependencias
+/vendor/
+/node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+/logs/*.log
+*.log
+
+# Backups
+/backups/*.sql
+/backups/*.zip
+*.sql
+*.sqlite
+
+# Cache y temporales
+/cache/
+/tmp/
+*.cache
+*.tmp
+
+# Uploads
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Certificados y claves
+*.pfx
+*.pem
+*.key
+*.crt
+
+# Composer
+/composer.lock

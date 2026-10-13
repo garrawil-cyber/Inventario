@@ -1,0 +1,302 @@
+/* ============================================================
+   UBICACIONES MODULE CSS
+   Sistema: RopaVirtual - Módulo de Ubicaciones
+   ============================================================ */
+
+/* ----------------------------------------------
+   Grid de ubicaciones (vista tipo mapa)
+---------------------------------------------- */
+.ubicacion-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.ubicacion-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ubicacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+}
+
+/* Estados visuales */
+.ubicacion-card.disponible {
+    border-left: 4px solid #28a745;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fff9 100%);
+}
+
+.ubicacion-card.ocupado {
+    border-left: 4px solid #dc3545;
+    background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+}
+
+.ubicacion-card.mantenimiento {
+    border-left: 4px solid #ffc107;
+    background: linear-gradient(135deg, #ffffff 0%, #fffef8 100%);
+}
+
+/* Header de la tarjeta */
+.ubicacion-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.ubicacion-card .codigo {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #212529;
+}
+
+.ubicacion-card .estado-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* Ubicación física */
+.ubicacion-card .ubicacion-fisica {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.ubicacion-card .ubicacion-fisica span {
+    font-size: 0.7rem;
+    color: #6c757d;
+}
+
+.ubicacion-card .ubicacion-fisica strong {
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+/* Capacidad */
+.ubicacion-card .capacidad-info {
+    margin-bottom: 0.75rem;
+}
+
+.ubicacion-card .capacidad-label {
+    font-size: 0.65rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.ubicacion-card .capacidad-bar {
+    height: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.ubicacion-card .capacidad-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.ubicacion-card .capacidad-fill.bajo {
+    background: #28a745;
+}
+
+.ubicacion-card .capacidad-fill.medio {
+    background: #ffc107;
+}
+
+.ubicacion-card .capacidad-fill.alto {
+    background: #fd7e14;
+}
+
+.ubicacion-card .capacidad-fill.lleno {
+    background: #dc3545;
+}
+
+.ubicacion-card .capacidad-text {
+    font-size: 0.65rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Productos */
+.ubicacion-card .productos-info {
+    border-top: 1px solid #e9ecef;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.ubicacion-card .productos-count {
+    font-size: 0.7rem;
+    color: #6c757d;
+}
+
+.ubicacion-card .productos-list {
+    max-height: 80px;
+    overflow-y: auto;
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
+}
+
+.ubicacion-card .producto-item {
+    padding: 0.15rem 0;
+    border-bottom: 1px dashed #e9ecef;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ----------------------------------------------
+   Vista de detalle de ubicación
+---------------------------------------------- */
+.ubicacion-detalle-card {
+    background: white;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.ubicacion-detalle-card .card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border: none;
+}
+
+.ubicacion-detalle-card .card-header h5 {
+    color: white;
+}
+
+.ubicacion-detalle-card .info-section {
+    padding: 1.25rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.ubicacion-detalle-card .info-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.ubicacion-detalle-card .info-value {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* ----------------------------------------------
+   Formularios
+---------------------------------------------- */
+.ubicacion-form-card {
+    background: white;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.ubicacion-form-card .card-header {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.25rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.ubicacion-form-card .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.25rem;
+}
+
+.ubicacion-form-card .form-control,
+.ubicacion-form-card .form-select {
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+}
+
+.ubicacion-form-card .form-control:focus,
+.ubicacion-form-card .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* ----------------------------------------------
+   Modal de asignación de producto
+---------------------------------------------- */
+.modal-asignar-producto .modal-content {
+    border-radius: 20px;
+    border: none;
+}
+
+.modal-asignar-producto .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-asignar-producto .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+.modal-asignar-producto .producto-seleccionado {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ----------------------------------------------
+   Responsive
+---------------------------------------------- */
+@media (max-width: 768px) {
+    .ubicacion-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .ubicacion-detalle-card .card-header {
+        padding: 1rem;
+    }
+    
+    .ubicacion-form-card .card-header {
+        padding: 1rem;
+    }
+}
+
+/* ----------------------------------------------
+   Animaciones
+---------------------------------------------- */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+.ubicacion-card.selected {
+    animation: pulse 0.5s ease;
+    border-color: #667eea;
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+}

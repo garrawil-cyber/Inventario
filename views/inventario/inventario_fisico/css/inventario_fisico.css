@@ -1,0 +1,349 @@
+/* ============================================================
+   inventario_fisico.css - Módulo Inventario Físico
+   RopaVirtual - Estilos modernos y responsivos
+   ============================================================ */
+
+:root {
+    --if-primary: #0d9488;
+    --if-primary-dark: #0f766e;
+    --if-primary-light: #14b8a6;
+    --if-danger: #dc2626;
+    --if-danger-dark: #b91c1c;
+    --if-warning: #f59e0b;
+    --if-success: #10b981;
+    --if-info: #3b82f6;
+    
+    --if-gray-50: #f8fafc;
+    --if-gray-100: #f1f5f9;
+    --if-gray-200: #e2e8f0;
+    --if-gray-300: #cbd5e1;
+    --if-gray-400: #94a3b8;
+    --if-gray-500: #64748b;
+    --if-gray-600: #475569;
+    --if-gray-700: #334155;
+    --if-gray-800: #1e293b;
+    --if-gray-900: #0f172a;
+    
+    --if-border-radius: 12px;
+    --if-border-radius-sm: 8px;
+    --if-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --if-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --if-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    
+    --if-transition: all 0.2s ease;
+}
+
+/* ============================================================
+   ESTADOS DE INVENTARIO (Badges)
+   ============================================================ */
+.badge-inv-planificado {
+    background-color: #fef3c7;
+    color: #d97706;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-inv-en_proceso {
+    background-color: #dbeafe;
+    color: #2563eb;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-inv-finalizado {
+    background-color: #d1fae5;
+    color: #059669;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-inv-cancelado {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ============================================================
+   TARJETAS DE ESTADÍSTICAS
+   ============================================================ */
+.stat-card-inv {
+    background: white;
+    border-radius: var(--if-border-radius);
+    box-shadow: var(--if-shadow);
+    transition: var(--if-transition);
+    border: 1px solid var(--if-gray-200);
+    overflow: hidden;
+}
+
+.stat-card-inv:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--if-shadow-md);
+}
+
+.stat-card-inv .stat-icon {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    opacity: 0.15;
+    color: var(--if-gray-600);
+}
+
+.stat-card-inv .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--if-gray-800);
+    line-height: 1.2;
+}
+
+.stat-card-inv .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--if-gray-500);
+    font-weight: 600;
+}
+
+/* ============================================================
+   DIFERENCIAS DE STOCK
+   ============================================================ */
+.diferencia-positiva {
+    color: var(--if-success);
+    font-weight: 600;
+    background: #d1fae5;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+.diferencia-negativa {
+    color: var(--if-danger);
+    font-weight: 600;
+    background: #fee2e2;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+.diferencia-cero {
+    color: var(--if-gray-500);
+    font-weight: 600;
+    background: var(--if-gray-100);
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+.diff-pos {
+    color: var(--if-success);
+    font-weight: 700;
+}
+
+.diff-neg {
+    color: var(--if-danger);
+    font-weight: 700;
+}
+
+.diff-zero {
+    color: var(--if-gray-500);
+}
+
+/* ============================================================
+   TABLA DE PRODUCTOS EN INVENTARIO
+   ============================================================ */
+.table-productos-inv th {
+    background-color: var(--if-gray-50);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--if-gray-600);
+    border-bottom: 1px solid var(--if-gray-200);
+    padding: 0.75rem;
+}
+
+.table-productos-inv td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--if-gray-100);
+}
+
+.table-productos-inv tr:hover {
+    background-color: var(--if-gray-50);
+}
+
+/* ============================================================
+   MODAL AGREGAR PRODUCTO
+   ============================================================ */
+.if-prod-result {
+    transition: background-color 0.15s ease;
+}
+
+.if-prod-result:hover {
+    background-color: var(--if-gray-50);
+}
+
+.if-prod-result:active {
+    background-color: var(--if-gray-100);
+}
+
+/* ============================================================
+   PANTALLA REALIZAR CONTEO
+   ============================================================ */
+.if-conteo-container {
+    background: white;
+    border-radius: var(--if-border-radius);
+    box-shadow: var(--if-shadow);
+    overflow: hidden;
+}
+
+.if-conteo-header {
+    background: linear-gradient(135deg, var(--if-primary) 0%, var(--if-primary-dark) 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.if-conteo-progress {
+    background: rgba(255,255,255,0.2);
+    border-radius: 9999px;
+    height: 8px;
+}
+
+.if-conteo-progress-bar {
+    background: white;
+    border-radius: 9999px;
+    height: 8px;
+    transition: width 0.3s ease;
+}
+
+.if-qty-input {
+    width: 100px;
+    text-align: center;
+    border: 1px solid var(--if-gray-300);
+    border-radius: var(--if-border-radius-sm);
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+    transition: var(--if-transition);
+}
+
+.if-qty-input:focus {
+    outline: none;
+    border-color: var(--if-primary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.if-qty-input.changed {
+    border-color: var(--if-warning);
+    background-color: #fffbeb;
+}
+
+.if-prod-row {
+    transition: background-color 0.15s ease;
+}
+
+.if-prod-row:hover {
+    background-color: var(--if-gray-50);
+}
+
+.if-ftab {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: var(--if-border-radius-sm);
+    transition: var(--if-transition);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.if-ftab:hover {
+    background-color: var(--if-gray-100);
+}
+
+.if-ftab.active {
+    background-color: var(--if-primary);
+    color: white;
+}
+
+/* ============================================================
+   PANTALLA RESULTADOS
+   ============================================================ */
+.resultado-card {
+    background: white;
+    border-radius: var(--if-border-radius);
+    box-shadow: var(--if-shadow);
+    padding: 1.25rem;
+    text-align: center;
+    transition: var(--if-transition);
+}
+
+.resultado-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--if-shadow-md);
+}
+
+.resultado-card .resultado-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.resultado-card .resultado-valor {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--if-gray-800);
+}
+
+.resultado-card .resultado-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--if-gray-500);
+    font-weight: 600;
+}
+
+/* ============================================================
+   SPINNER
+   ============================================================ */
+.if-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: if-spin 0.6s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes if-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .stat-card-inv .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    .if-qty-input {
+        width: 70px;
+        font-size: 0.75rem;
+    }
+    
+    .table-responsive-stack {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
