@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d6efd" />
+      <stop offset="100%" style="stop-color:#6f42c1" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff" />
+      <stop offset="100%" style="stop-color:#e7f3ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="500" height="500" rx="80" fill="url(#bgGrad)" />
+
+  <!-- Círculos decorativos -->
+  <circle cx="420" cy="80" r="150" fill="#ffffff" opacity="0.08" />
+  <circle cx="80" cy="440" r="120" fill="#ffffff" opacity="0.08" />
+
+  <!-- Caja principal -->
+  <g transform="translate(140, 130)">
+    <rect x="0" y="60" width="220" height="200" rx="20" fill="url(#boxGrad)" />
+    <rect x="0" y="40" width="220" height="60" rx="15" fill="#ffc107" />
+    <rect x="100" y="40" width="35" height="220" fill="#ffc107" />
+    <rect x="100" y="40" width="35" height="40" fill="#e0a800" />
+    <rect x="20" y="80" width="30" height="170" rx="8" fill="#ffffff" opacity="0.4" />
+    
+    <!-- Checkmark -->
+    <g transform="translate(70, 160)">
+      <circle cx="40" cy="40" r="40" fill="#198754" />
+      <path d="M 22 42 L 35 55 L 60 28" stroke="#ffffff" stroke-width="8" 
+            fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>
