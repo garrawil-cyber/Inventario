@@ -1,3 +1,4 @@
+![Sistema de Inventario](docs/banner.svg)
 # 📦 Sistema de Inventario
 
 Sistema web completo para la gestión de inventario, productos, ventas y ubicaciones. Desarrollado en **PHP puro (MVC)** con **MySQL** y **Bootstrap 5**, con autenticación por roles, control de stock y reportes.
